@@ -6,10 +6,13 @@
   "scripts": {
     "start": "node .",
     "start:docker": "docker compose run --build --rm --service-ports app",
-    "infra:up": "docker compose up -d",
+    "infra:up": "docker compose up -d db",
     "infra:down": "docker compose down",
     "test": "mocha *.spec.js",
     "test:docker": "docker compose run --build --rm app npm run test"
+  },
+  "dependencies": {
+    "mongoose": "^8.0.3"
   },
   "devDependencies": {
     "chai": "^4.3.10",

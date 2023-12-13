@@ -1,3 +1,7 @@
-import { httpServer } from "./server.js";
+import { openDatabase } from "./database.js";
+import { startServer } from "./server.js";
 
-httpServer.listen(3000, () => console.log("Server is running on port 3000"));
+await openDatabase();
+await startServer(3000);
+
+console.log("Server is running on port 3000");

@@ -7,3 +7,21 @@ services:
     container_name: mendelu-example-api
     ports:
       - "3000:3000"
+    environment:
+      MONGO_HOST: db
+    depends_on:
+      db:
+        condition: service_healthy
+
+  db:
+    image: mongo
+    container_name: mendelu-example-db
+    ports:
+      - 27017:27017
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+    volumes:
+      - ./.db:/data/db
+    healthcheck:
+      test: echo 'db.runCommand("ping").ok' | mongosh localhost:27017/test --quiet
