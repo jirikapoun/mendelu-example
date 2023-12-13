@@ -20,7 +20,7 @@ async function requestHandler(request, response) {
   response.end(
     JSON.stringify(
       {
-        message: "Hallo World!",
+        message: "Hello World!",
         logs: allAccessLogs,
       },
       null,
