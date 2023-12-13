@@ -1,0 +1,9 @@
+name: mendelu-example
+
+services:
+  app:
+    build:
+      context: .
+    container_name: mendelu-example-api
+    ports:
+      - "3000:3000"

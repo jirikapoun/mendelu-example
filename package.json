@@ -5,11 +5,11 @@
   "main": "index.js",
   "scripts": {
     "start": "node .",
-    "start:docker": "docker compose run --rm --service-ports app",
+    "start:docker": "docker compose run --build --rm --service-ports app",
     "infra:up": "docker compose up -d",
     "infra:down": "docker compose down",
     "test": "mocha *.spec.js",
-    "test:docker": "docker compose run --rm app npm run test"
+    "test:docker": "docker compose run --build --rm app npm run test"
   },
   "devDependencies": {
     "chai": "^4.3.10",
